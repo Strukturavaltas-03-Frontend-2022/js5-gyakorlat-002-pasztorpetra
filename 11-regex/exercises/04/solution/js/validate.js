@@ -12,16 +12,14 @@
 //    Ez az érték az, hogy milyen adatot akarunk validálni.
 //    A függvény visszatérési értéke egye `Boolean`.
 
-
 const roles = {
   patterns: {
     visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
     ip: /^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$/,
-    mac: /^(?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2})$/
+    mac: /^(?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2})$/,
   },
-  function validate (text, type) {
-    return text.match(patterns[type]) ? true : false; 
-  }
 };
+
+const validate = (text, type) => (!!text.match(roles.patterns[type]));
 
 export default validate;
